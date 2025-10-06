@@ -1,7 +1,13 @@
+from sys import argv, exit
 from stats import get_num_words, get_chars_dict, dict_to_sorted_list
 
 def main():
-	file_path = 'books/frankenstein.txt'
+	# print(len(argv))
+	if len(argv) < 2:
+		print("Usage: python3 main.py <path_to_book>")
+		exit(1)
+	
+	file_path = argv[1]
 	file_contents = get_book(file_path)
 	word_count = get_num_words(file_contents)
 	chars_dict = get_chars_dict(file_contents)
